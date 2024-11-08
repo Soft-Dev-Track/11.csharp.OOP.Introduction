@@ -1,6 +1,6 @@
-# 11. Object-Oriented Programming (OOP) - Introduction (DRAFT)
+# 11. Object-Oriented Programming (OOP) : introduction
 
-OOP stands for **ORIENTED OBJECT PROGRAMMING**
+OOP stands for **Object-Oriented Programming**
 
 ## 1. What is an object and a class? 
 
@@ -120,77 +120,75 @@ namespace Clients
     {
         public string Color { get; set; } // Simple property with get and set
         private string _brand;
-        public string brand {
+        public string Brand {
             get {
-                return brand;
+                return _brand;
             }
             set{
-                _brand = brand;
+                _brand = Brand;
             }
         }
     }
 }
 ```
 
-This is cleaner, but we can refine it further.
+This approach is cleaner, but we can refine it further.
 
-Imagine we want to prevent users from changing the car’s color after it’s been set, as you typically wouldn’t change a car's color after purchasing it. To make a property that is only settable internally within the class, we can add the `private` keyword before `set`, making it a read-only property from the outside:
+Imagine we want to prevent users from changing the car’s color after it’s been set, as you typically wouldn’t change a car's color after purchasing it. To make a property settable only during initialization, we have a few options: using `private set`, `init`, or `readonly`.
 
-```public string Color { get; private set; }```
+#### 1. Setting Read-Only Properties
 
-#### 1. Setting Read-Only Fields
+There are three ways to set a property once and prevent modification afterward:
 
-So how can we set the car's color initially? There are two options:
-
-- **Default Value**: If all cars should have the same color by default, we can assign it directly within the property:
-
-```public string Color { get; private set; } = "Red";```
-
-- **Constructor**: If each car should have a unique color, we should use a constructor to set the color at the time of object creation:
+- Using `private set`: This allows a property to be assigned internally, typically through a constructor or method, while making it read-only from outside the class.
 
 ```csharp
-internal class Car
-{
-    public string Color { get; private set; }
-
-    public Car(string color)
-    {
-        Color = color; // Set color at creation
-    }
-
-    public ChanginColor(string color)
-    {
-        Color = color; // this is authorize
-    }
-}
+public string Color { get; private set; } // Accessible only within the class
 ```
 
-#### 2. Using readonly for Fields
+- Using `init` (C# 9+): Properties with `init` can be assigned only when the object is created, making them immutable after initialization.
 
-In addition to using `private set`, we can also make fields `readonly` to prevent them from being modified after initialization. A `readonly` field can only be assigned once, either at the point of declaration or within the constructor.
+```csharp
+public string Color { get; init; } // Can only be set at object creation
+```
+
+- Using `readonly` (for fields): For fields rather than properties, `readonly` makes a field assignable only once, either at declaration or within the constructor.
+
+```csharp
+public readonly string Model; // Assignable only once
+```
+
+#### 2. Initializing Properties with Default Values or Constructors
+Here’s how to initialize properties with the above options:
+
+- ***Default Value***: If all cars should have the same color by default, we can set it directly within the property.
+
+```csharp
+public string Color { get; private set; } = "Red";
+```
+
+- ***Constructor***: If each car should have a unique color, a constructor can set the property or field at object creation.
 
 ```csharp
 internal class Car
 {
+    public string Color { get; init; } // Using init to allow only initial assignment
     public readonly string Model;
 
-    public Car(string model)
+    public Car(string color, string model)
     {
+        Color = color; // Set color once during initialization
         Model = model; // Set only in the constructor
-    }
-
-      public ChanginColor(string color)
-    {
-        Color = color; // this is NOT authorize
     }
 }
 ```
 
-| Summary of Differences       | `public readonly string Text`                         | `public string Text { get; private set; }`               |
-|------------------------------|------------------------------------------------------|----------------------------------------------------------|
-| **Modifiable**               | Once only (at declaration or in the constructor)     | Internally modifiable multiple times                     |
-| **External Modification**    | Not allowed                                          | Not allowed                                              |
-| **Typical Usage**            | Immutable values after initialization                | Access control with internal flexibility                 |
+| Summary of Differences       | `public readonly string Text`                         | `public string Text { get; private set; }`               | `public string Text { get; init; }`                  |
+|------------------------------|------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------|
+| **Modifiable**               | Once only (at declaration or in the constructor)     | Internally modifiable multiple times                     | Only during initialization                           |
+| **External Modification**    | Not allowed                                          | Not allowed                                              | Not allowed after initialization                     |
+| **Typical Usage**            | Immutable values after initialization                | Access control with internal flexibility                 | Immutable values with simpler initialization         |
+
 
 ## 3. Constructors
 
@@ -213,7 +211,44 @@ namespace Clients
         }
     }
 }
+
+Car Toyota = new Car("Blue", "Toyota"); // Constructor-based initialization
 ```
 
 **Note**: In the constructor parameters, we use lowercase (`color` and `brand`). For the second parameter, `brand`, the name matches the class field name `Brand`. To distinguish them, we use `this.Brand`, where this refers to the current instance of the class.
 
+**Object Initializers and required**
+
+In addition to constructors, C# offers object initializers for setting properties when creating an object. Object initializers provide a flexible syntax, allowing you to set properties in any order and without defining a specific constructor.
+
+With C# 11, you can use the `required` keyword to enforce that certain properties must be initialized at the time of object creation, even with initializers. Properties marked with `required` must be set in the initializer; otherwise, a compilation error will occur.
+
+Here’s an example with `required`:
+
+```csharp
+namespace Clients
+{
+    internal class Car
+    {
+        public required string Color { get; init; } // Must be initialized
+        public string Brand { get; set; } // Optional initialization
+    }
+}
+
+// Using an object initializer
+Car Toyota = new Car { Color = "Blue", Brand = "Toyota" }; // Valid
+
+// Omitting required property (will cause a compilation error)
+Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
+```
+
+**Note**: `required` properties in object initializers allow you to enforce essential values without needing a constructor. This adds flexibility by letting you mix `required` and optional properties in a more readable format.
+
+| Feature                      | Constructor                             | Object Initializer with `required`                  |
+|------------------------------|-----------------------------------------|----------------------------------------------------|
+| **Initialization Syntax**    | Uses a method-like parameter list      | Uses `{ property = value }` syntax                 |
+| **Enforces Required Fields** | Yes, via constructor parameters        | Yes, with `required` properties                    |
+| **Order of Properties**      | Fixed order in parameter list          | Any order in initializer                           |
+| **Private/Read-Only Fields** | Can set private or readonly fields     | Limited to public properties with `init` or `set`  |
+| **Code Readability**         | Clear but verbose for many properties  | Concise, especially for multiple optional fields   |
+| **When to Use**              | Essential properties, complex setup    | Required and optional properties, flexible syntax  |
