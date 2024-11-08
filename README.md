@@ -218,6 +218,7 @@ Car Toyota = new Car("Blue", "Toyota"); // Constructor-based initialization
 **Note**: In the constructor parameters, we use lowercase (`color` and `brand`). For the second parameter, `brand`, the name matches the class field name `Brand`. To distinguish them, we use `this.Brand`, where this refers to the current instance of the class.
 
 **Expression-Bodied Constructors?**
+
 Expression-bodied constructors are ideal when you have a simple assignment or a straightforward expression to execute. However, for more complex logic (such as validations or multiple assignments), the traditional constructor format is generally clearer.
 
 ```csharp
