@@ -283,7 +283,7 @@ Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
 
 - B. Initialize these fields via a constructor that takes two parameters.
 - C. Add a `CalculateArea()` method that returns the area of the rectangle.
--D. Instantiate a `Rectangle` object and display its area.
+- D. Instantiate a `Rectangle` object and display its area.
 
 ### 4. Controlled Access Properties in a Student Class
 
