@@ -252,3 +252,52 @@ Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
 | **Private/Read-Only Fields** | Can set private or readonly fields     | Limited to public properties with `init` or `set`  |
 | **Code Readability**         | Clear but verbose for many properties  | Concise, especially for multiple optional fields   |
 | **When to Use**              | Essential properties, complex setup    | Required and optional properties, flexible syntax  |
+
+## Exercices
+
+### 1. Creating a Book Class
+
+- A. Create a `Book` class with the following properties:
+    - `Title` (string): Represents the title of the book.
+    - `Author` (string): Represents the author of the book.
+    - `Pages` (int): Represents the number of pages in the book.
+
+- B. Ensure that the `Title` property is read-only after initialization using `init`.
+- C. Create a `Book` object using an object initializer and display the values of its properties.
+
+### 2. Using a Constructor for a Person Class
+
+- A. Create a `Person` class with a constructor that takes the following properties as parameters:
+    - `Name` (string): The person’s name.
+    - `Age` (int): The person’s age.
+
+- B. Ensure that the `Name` and `Age` properties cannot be modified after the object is created by using `private set`.
+
+- C. Instantiate two `Person` objects with different values and display their information.
+
+### 3. Rectangle Class with readonly Fields
+
+- A. Create a `Rectangle` class with two `readonly` fields:
+    - `Length` (double): The length of the rectangle.
+    - `Width` (double): The width of the rectangle.
+
+- B. Initialize these fields via a constructor that takes two parameters.
+- C. Add a `CalculateArea()` method that returns the area of the rectangle.
+-D. Instantiate a `Rectangle` object and display its area.
+
+### 4. Controlled Access Properties in a Student Class
+
+- A. Create a `Student` class with the following properties:
+    - `Name` (string): The student’s name (read-only using `init`).
+    - `Grade` (int): The student’s grade (use private set so only the class can modify the grade).
+- B. Add a `UpdateGrade(int newGrade)` method that allows updating the grade.
+- C. Create a`Student` object, assign a name and initial grade, then use the `UpdateGrade` method to change the grade.
+
+#### 5. Object Initializers with required in a Car Class
+
+- A. Create a `Car` class with the following properties, all marked as `required`:
+    - `Make` (string): The make of the car.
+    - `Model` (string): The model of the car.
+    - `Year` (int): The manufacturing year of the car.
+- B. Instantiate a `Car` object using an object initializer, assigning all required values.
+- C. Display the car’s information.
