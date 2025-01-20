@@ -325,3 +325,6 @@ Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
     - `Year` (int): The manufacturing year of the car.
 - B. Instantiate a `Car` object using an object initializer, assigning all required values.
 - C. Display the car’s information.
+
+--- 
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWlld29hbTR4dWF5dG1kOGhpcHl3ODJrcGQxZHJoaDJrcWJ4ejB2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RJbLRsWSh9jRtksVs0/giphy.gif)
