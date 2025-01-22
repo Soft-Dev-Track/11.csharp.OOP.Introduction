@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Introduction", "OOP-Introduction\OOP-Introduction.csproj", "{1E81B772-AFD0-455F-9190-20B1D859D63B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_OOP_Intro", "Test_OOP_Intro\Test_OOP_Intro.csproj", "{512C3EE6-6A73-4E77-8F88-5D0BB76066A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E81B772-AFD0-455F-9190-20B1D859D63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E81B772-AFD0-455F-9190-20B1D859D63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E81B772-AFD0-455F-9190-20B1D859D63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E81B772-AFD0-455F-9190-20B1D859D63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512C3EE6-6A73-4E77-8F88-5D0BB76066A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512C3EE6-6A73-4E77-8F88-5D0BB76066A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512C3EE6-6A73-4E77-8F88-5D0BB76066A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512C3EE6-6A73-4E77-8F88-5D0BB76066A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

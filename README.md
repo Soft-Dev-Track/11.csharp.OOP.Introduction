@@ -287,7 +287,38 @@ Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
     - `Pages` (int): Represents the number of pages in the book.
 
 - B. Ensure that the `Title` property is read-only after initialization using `init`.
-- C. Create a `Book` object using an object initializer and display the values of its properties.
+- C. Create a `Book` object using an object initializer.
+- D. Add a method that returns the title, the author and the total pages of the book.
+
+```csharp
+using OOP_Introduction;
+
+namespace Test_OOP_Intro
+{
+    public class TestBook
+    {
+
+        private Book _book;
+
+        [SetUp]
+        public void Setup()
+        {
+            _book = new Book() { Author = "John Doe", Title = "How to learn C#", Pages = 100 };
+        }
+
+        [Test]
+        public void TestDisplay()
+        {
+            // Act
+            string input = "Author : John Doe - Title : How to learn C# - Page : 100";
+            string result = _book.Display();
+
+            // Assert
+            Assert.That(input,Is.EqualTo(result));
+        }
+    }
+}
+```
 
 ### 2. Using a Constructor for a Person Class
 
@@ -296,8 +327,62 @@ Car Honda = new Car { Brand = "Honda" }; // Error: 'Color' is required
     - `Age` (int): The person’s age.
 
 - B. Ensure that the `Name` and `Age` properties cannot be modified after the object is created by using `private set`.
+- C. Create a method that check if the person is an adult (it returns a bool).
+- D. Add a method that returns the name, and the age, including if the person is a teenager or an adult.
+- E. Instantiate the`Person` class and call the `Display` method.
 
-- C. Instantiate two `Person` objects with different values and display their information.
+**Please use expression-bodied members for the two methods.**
+
+```csharp
+using OOP_Introduction;
+
+namespace Test_OOP_Intro
+{
+    public class TestPerson
+    {
+        private Person _adultPerson;
+        private Person _childPerson;
+
+        [SetUp]
+        public void Setup()
+        {
+            _adultPerson = new Person("John", 23);
+            _childPerson = new Person("Hector", 12);
+        }
+
+        [Test]
+        public void Display_ReturnsCorrectDescriptionForAdult()
+        {
+            // Act
+            string expected = "John is 23 years old : Adult";
+            string actual = _adultPerson.Display();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void IsAdult_ReturnsTrueForAdults()
+        {
+            // Act
+            bool isAdult = _adultPerson.IsAdult();
+
+            // Assert
+            Assert.That(isAdult, Is.True);
+        }
+
+        [Test]
+        public void IsAdult_ReturnsFalseForChildren()
+        {
+            // Act
+            bool isAdult = _childPerson.IsAdult();
+
+            // Assert
+            Assert.That(isAdult, Is.False);
+        }
+    }
+}
+```
 
 ### 3. Rectangle Class with readonly Fields
 

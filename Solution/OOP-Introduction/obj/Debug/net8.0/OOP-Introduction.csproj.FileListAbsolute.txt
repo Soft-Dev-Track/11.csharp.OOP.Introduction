@@ -1,0 +1,15 @@
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\bin\Debug\net8.0\OOP-Introduction.exe
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\bin\Debug\net8.0\OOP-Introduction.deps.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\bin\Debug\net8.0\OOP-Introduction.runtimeconfig.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\bin\Debug\net8.0\OOP-Introduction.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\bin\Debug\net8.0\OOP-Introduction.pdb
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.AssemblyInfoInputs.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.AssemblyInfo.cs
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.csproj.CoreCompileInputs.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.sourcelink.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\refint\OOP-Introduction.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.pdb
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\OOP-Introduction.genruntimeconfig.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\11.csharp.OOP.Introduction\Solution\OOP-Introduction\obj\Debug\net8.0\ref\OOP-Introduction.dll
