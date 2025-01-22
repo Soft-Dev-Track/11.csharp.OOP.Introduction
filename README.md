@@ -327,9 +327,9 @@ namespace Test_OOP_Intro
     - `Age` (int): The person’s age.
 
 - B. Ensure that the `Name` and `Age` properties cannot be modified after the object is created by using `private set`.
-- C. Create a method that check if the person is an adult (it returns a bool).
-- D. Add a method that returns the name, and the age, including if the person is a teenager or an adult.
-- E. Instantiate the`Person` class and call the `Display` method.
+- C. Create a method that check if the person is an adult (it returns a boolean).
+- D. Add a method that returns the name and the age, including if the person is a teenager or an adult.
+- E. Instantiate the `Person` class and call the `Displa()y` method.
 
 **Please use expression-bodied members for the two methods.**
 
@@ -384,15 +384,90 @@ namespace Test_OOP_Intro
 }
 ```
 
-### 3. Rectangle Class with readonly Fields
+### 3. Rectangle Class.
 
-- A. Create a `Rectangle` class with two `readonly` fields:
+- A. Create a `Rectangle` class with two properties:
     - `Length` (double): The length of the rectangle.
     - `Width` (double): The width of the rectangle.
 
-- B. Initialize these fields via a constructor that takes two parameters.
+- B  Update the `get;` method and throw a new exception if the number is 0 or negative.
 - C. Add a `CalculateArea()` method that returns the area of the rectangle.
 - D. Instantiate a `Rectangle` object and display its area.
+
+```csharp
+// Example
+private double _length;
+
+public double Length
+{ 
+    get => _length;
+
+    set
+    {
+        if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value), "Length cannot be zero or negative.");
+        _length = value;
+    }
+}
+```
+
+```csharp
+using OOP_Introduction;
+
+
+namespace Test_OOP_Intro
+{
+    public class TestRectangle
+    {
+
+        private RectangleEx _rectangle;
+
+        [SetUp]
+        public void Setup()
+        {
+            _rectangle = new RectangleEx() 
+            { 
+                Length = 4d,
+                Width = 2d
+            };
+        }
+
+        [Test]
+        public void TestValidDimensions()
+        {
+
+            double l = _rectangle.Length = 2d;
+            double w = _rectangle.Width = 5d;
+
+            Assert.That(l, Is.EqualTo(2d));
+            Assert.That(w, Is.EqualTo(5d));
+        }
+
+        [Test]
+        public void Length_SetToNegativeValue_ThrowsArgumentOutOfRangeException()
+        {
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => _rectangle.Length = -1);
+            Assert.That(ex.ParamName, Is.EqualTo("value"), "Should throw an ArgumentOutOfRangeException for the 'value' parameter.");
+            Assert.That(ex.Message, Does.StartWith("Length cannot be zero or negative."));
+        }
+
+        [Test]
+        public void Width_SetToNegativeValue_ThrowsArgumentOutOfRangeException()
+        {
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => _rectangle.Width = -1);
+            Assert.That(ex.ParamName, Is.EqualTo("value"), "Should throw an ArgumentOutOfRangeException for the 'value' parameter.");
+            Assert.That(ex.Message, Does.StartWith("Width cannot be zero or negative."));
+        }
+
+        [Test]
+        public void Test_Area()
+        {
+            double result = _rectangle.CalculateArea();
+
+            Assert.That(result, Is.EqualTo(8d));
+        }
+    }
+}
+```
 
 ### 4. Controlled Access Properties in a Student Class
 
