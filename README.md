@@ -469,22 +469,5 @@ namespace Test_OOP_Intro
 }
 ```
 
-### 4. Controlled Access Properties in a Student Class
-
-- A. Create a `Student` class with the following properties:
-    - `Name` (string): The student’s name (read-only using `init`).
-    - `Grade` (int): The student’s grade (use private set so only the class can modify the grade).
-- B. Add a `UpdateGrade(int newGrade)` method that allows updating the grade.
-- C. Create a`Student` object, assign a name and initial grade, then use the `UpdateGrade` method to change the grade.
-
-#### 5. Object Initializers with required in a Car Class
-
-- A. Create a `Car` class with the following properties, all marked as `required`:
-    - `Make` (string): The make of the car.
-    - `Model` (string): The model of the car.
-    - `Year` (int): The manufacturing year of the car.
-- B. Instantiate a `Car` object using an object initializer, assigning all required values.
-- C. Display the car’s information.
-
 --- 
 ![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWlld29hbTR4dWF5dG1kOGhpcHl3ODJrcGQxZHJoaDJrcWJ4ejB2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RJbLRsWSh9jRtksVs0/giphy.gif)
